@@ -158,22 +158,19 @@ ul { list-style: none; }
   gap: 2rem;
 }
 .nav-logo {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
   display: flex;
-  gap: 2px;
+  align-items: center;
 }
-.nav-logo span {
-  display: inline-block;
-  transition: transform var(--transition-fast), color var(--transition-fast);
+.nav-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-fast), filter var(--transition-fast);
 }
-.nav-logo:hover span:nth-child(1) { color: var(--festival-orange); transform: translateY(-3px) rotate(-5deg); }
-.nav-logo:hover span:nth-child(2) { color: var(--purple); transform: translateY(-5px); transition-delay: 50ms; }
-.nav-logo:hover span:nth-child(3) { color: var(--teal); transform: translateY(-3px) rotate(5deg); transition-delay: 100ms; }
-.nav-logo:hover span:nth-child(4) { color: var(--gold); transform: translateY(-5px); transition-delay: 150ms; }
-.nav-logo:hover span:nth-child(5) { color: var(--rv-blue); transform: translateY(-3px) rotate(-5deg); transition-delay: 200ms; }
+.nav-logo:hover .nav-logo-img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 2px 8px rgba(255, 107, 53, 0.4));
+}
 
 .nav-links {
   display: flex;
@@ -1325,8 +1322,8 @@ ul { list-style: none; }
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1.3fr;
+  gap: 2rem;
   margin-bottom: var(--space-xl);
 }
 .footer-logo {
@@ -1335,6 +1332,19 @@ ul { list-style: none; }
   font-weight: 700;
   color: var(--text-on-dark);
   margin-bottom: 0.75rem;
+}
+.footer-logo-img {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: opacity var(--transition-fast), filter var(--transition-fast);
+}
+.footer-logo-img:hover {
+  opacity: 1;
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 107, 53, 0.6));
 }
 .footer-brand > p {
   margin-bottom: 0.5rem;
@@ -1382,6 +1392,27 @@ ul { list-style: none; }
   transition: color var(--transition-fast);
 }
 .footer-links a:hover { color: var(--festival-orange); }
+
+/* Footer Contact column */
+.footer-contact address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.footer-contact address p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.footer-contact-link a {
+  color: var(--festival-orange) !important;
+  font-size: 0.82rem;
+  word-break: break-all;
+}
+.footer-contact-link a:hover {
+  color: var(--gold) !important;
+}
 
 .footer-bottom {
   border-top: 1px solid var(--border-dark);
