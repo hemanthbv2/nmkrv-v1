@@ -676,6 +676,28 @@ ul { list-style: none; }
   height: 280px;
   position: relative;
 }
+.orbit-center-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  z-index: 5;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+}
+.orbit-center-logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: left center;
+  filter: brightness(0) invert(1);
+}
 .orbit-ring {
   position: absolute;
   border: 1px solid rgba(255,255,255,0.08);
@@ -686,15 +708,24 @@ ul { list-style: none; }
 .ring-3 { inset: 60px; border-color: rgba(124,58,237,0.15); animation: spin 25s linear infinite; }
 .orbit-icon {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  margin-left: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.8rem;
-  animation: orbit-float 6s ease-in-out infinite;
+  animation: revolve 24s linear infinite;
 }
-.oi-1 { top: 0; left: 50%; transform: translateX(-50%); }
-.oi-2 { top: 25%; right: 0; animation-delay: 1s; }
-.oi-3 { bottom: 25%; right: 5%; animation-delay: 2s; }
-.oi-4 { bottom: 0; left: 50%; transform: translateX(-50%); animation-delay: 3s; }
-.oi-5 { bottom: 25%; left: 0; animation-delay: 4s; }
-.oi-6 { top: 25%; left: 5%; animation-delay: 5s; }
+.oi-1 { animation-delay: 0s; }
+.oi-2 { animation-delay: -4s; }
+.oi-3 { animation-delay: -8s; }
+.oi-4 { animation-delay: -12s; }
+.oi-5 { animation-delay: -16s; }
+.oi-6 { animation-delay: -20s; }
 
 /* ================================================
    QUIZ MODAL
@@ -1334,7 +1365,7 @@ ul { list-style: none; }
   margin-bottom: 0.75rem;
 }
 .footer-logo-img {
-  height: 56px;
+  height: 96px;
   width: auto;
   object-fit: contain;
   margin-bottom: 0.75rem;
@@ -1449,6 +1480,10 @@ ul { list-style: none; }
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+@keyframes revolve {
+  from { transform: rotate(0deg) translateX(140px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
 }
 @keyframes orbit-float {
   0%, 100% { transform: translateY(0) scale(1); }
